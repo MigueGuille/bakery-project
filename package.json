@@ -1,0 +1,29 @@
+{
+  "name": "bakery-project",
+  "version": "1.0.0",
+  "description": "management and administration of a bakery business based on sales by allocation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josemavarez11/bakery-project.git"
+  },
+  "keywords": [
+    "node.js",
+    "javascript",
+    "express.js",
+    "express-session",
+    "socket.io",
+    "sql",
+    "postgresql",
+    "database"
+  ],
+  "author": "José Mavárez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josemavarez11/bakery-project/issues"
+  },
+  "homepage": "https://github.com/josemavarez11/bakery-project#readme"
+}
