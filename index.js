@@ -1,10 +1,10 @@
 import cookieParser from "cookie-parser";
-import dotenv from "dotenv";
+//import dotenv from "dotenv";
 import express from "express";
 import session from "express-session";
 import { router } from "./router.js";
 
-dotenv.config({path: "./credentials.env"});
+//dotenv.config({path: "./credentials.env"});
 const app = express();
 
 app.use(express.json());

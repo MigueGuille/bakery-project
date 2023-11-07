@@ -1,6 +1,6 @@
 import pg from "pg"
-import dotenv from "dotenv"
-dotenv.config({path: "../credentials.env"})
+//import dotenv from "dotenv"
+//dotenv.config({path: "../credentials.env"})
 
 export const pool = new pg.Pool({
     user: process.env.PGUSER,
