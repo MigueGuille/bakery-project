@@ -1,6 +1,9 @@
 import { usuarioExiste } from '../validaciones/UsuarioExiste.js'
 import { usuarioBloqueado } from '../validaciones/UsuarioBloqueado.js';
 import { claveCorrecta } from '../validaciones/ClaveCorrecta.js';
+import { resetearIntentos } from '../validaciones/ResetearIntentos.js';
+import { ControladorSesion } from '../controladores/controladorSesion.js';
+import { reducirIntentos } from '../validaciones/ReducirIntentos.js';
 
 export const validarInfoLogin = async (req, res, next) => {
     if(req.body.usuario && req.body.clave) {
@@ -10,12 +13,20 @@ export const validarInfoLogin = async (req, res, next) => {
             console.log('usuario existe'); //quitar
             if(! await usuarioBloqueado(usuario)){
                 console.log('usuario no bloqueado'); //quitar
-                if(await claveCorrecta({ usuario, clave })){
-                    console.log('clave correcta'); //quitar
-                    next();
-                }else{
-                    return res.status(401).send(`Clave incorrecta para el usaurio ${usuario}. 
-                    <a href=\'/\'>Intente de nuevo.</a>`)
+                try {
+                    const infoUsuario = await claveCorrecta({ usuario, clave });
+                    if(infoUsuario.rowCount > 0){
+                        console.log('clave correcta'); //quitar
+                        await resetearIntentos(usuario);
+                        ControladorSesion.crearSesion({req, infoUsuario: infoUsuario.rows[0]})
+                        next();
+                    }else{
+                        await reducirIntentos(usuario);
+                        return res.status(401).send(`Clave incorrecta para el usaurio ${usuario}. 
+                        <a href=\'/\'>Intente de nuevo.</a>`)
+                    }
+                } catch (error) {
+                    return console.error('error validando la información del usuario', error)
                 }
             }else{
                 return res.status(403).send(`El usuario ${usuario} está bloqueado`)
