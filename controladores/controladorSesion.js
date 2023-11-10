@@ -6,7 +6,7 @@ export class ControladorSesion{
     static async cerrarSesion(req, res){
         req.session.destroy((err) => {
             if(err) return console.error('error al cerrar la sesión', err)
-            return res.redirect('/')
+            //return res.redirect('/')
         })
     }
 
@@ -18,6 +18,8 @@ export class ControladorSesion{
         }
         console.log('--------------------------------------------------------')
         console.log(`Sesión iniciada para: ${req.session.no_usuario}`)
+        console.log('--------------------------------------------------------')
+        console.log(req.session)
         console.log('--------------------------------------------------------')
         return true;
     }
