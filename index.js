@@ -3,7 +3,6 @@ import cookieParser from "cookie-parser";
 import express from "express";
 import session from "express-session";
 import { router } from "./router.js";
-import { corsMiddleware } from "./middlewares/cors.js";
 import cors from 'cors'
 
 //dotenv.config({path: "./credentials.env"});
