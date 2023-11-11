@@ -12,7 +12,7 @@ export const verificarRespuesta = async (req, res) => {
                 const nuevaClave = generarClave();
                 enviarEmail({ para: email, clave: nuevaClave}) 
                 // usar el método cambiarClave para actualizar la clave en bd
-                return res.status(200)
+                return res.status(200).json({ mensaje: 'Una nueva clave ha sido enviada a su correo'})
                 // usar el codigo 200 en el front para certificar que fue correcto el ingreso de la respuesta
             }else{
                 return res.status(404).json({ Error: 'La respuesta es incorrecta'})

@@ -6,7 +6,7 @@ export class ControladorSesion{
     static async cerrarSesion(req, res){
         req.session.destroy((err) => {
             if(err) return console.error('error al cerrar la sesión', err)
-            //return res.redirect('/')
+            return res.status(200).json({ mensaje: 'Sesión cerrada correctamente'})
         })
     }
 

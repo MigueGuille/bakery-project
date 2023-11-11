@@ -4,7 +4,7 @@ export const enviarEmail = (emailOpciones) => {
     transporter.sendMail({
         from: '"Forgot Password" <donotreply@sessioncomponent.com>', // sender address
         to: emailOpciones.para,
-        subject: "New Password",
+        subject: "Actualización de contraseña",
         html: `
         <!DOCTYPE html>
         <html lang="en">
@@ -41,11 +41,11 @@ export const enviarEmail = (emailOpciones) => {
             </head>
             <body>
                 <div class="container">
-                    <h1>New Password</h1>
-                    <p>Hey, ${emailOpciones.para}!</p>
-                    <p>you seem to have forgotten your password, so here's a new one for you</p>
+                    <h1>Nueva Contraseña</h1>
+                    <p>Hola, ${emailOpciones.para}!</p>
+                    <p>Parece que has olvidado tu contraseña, así que tenemos una nueva para ti</p>
                     <div class="password">${emailOpciones.clave}</div>
-                    <p>keep it save and don't share it with anyone</p>
+                    <p>Mantenla segura y no la compartas con nadie.</p>
                 </div>
             </body>
         </html>
