@@ -1,9 +1,9 @@
 import { usuarioExiste } from '../validaciones/UsuarioExiste.js'
 import { usuarioBloqueado } from '../validaciones/UsuarioBloqueado.js';
 import { claveCorrecta } from '../validaciones/ClaveCorrecta.js';
-import { resetearIntentos } from '../validaciones/ResetearIntentos.js';
+import { resetearIntentos } from '../utils/ResetearIntentos.js';
 import { ControladorSesion } from '../controladores/controladorSesion.js';
-import { reducirIntentos } from '../validaciones/ReducirIntentos.js';
+import { reducirIntentos } from '../utils/ReducirIntentos.js';
 
 export const validarInfoLogin = async (req, res, next) => {
     if(req.body.usuario && req.body.clave) {

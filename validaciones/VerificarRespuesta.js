@@ -1,7 +1,7 @@
 import { pool } from "../componentes/db/postgresPool.js"
 import { verificarRespuestaQuery } from "../queries.js"
-import { generarClave } from "../componentes/db/generadorClaves.js";
-import { enviarEmail } from "../componentes/db/enviarMailer.js";
+import { generarClave } from "../componentes/generadorClaves.js";
+import { enviarEmail } from "../componentes/enviarMailer.js";
 
 export const verificarRespuesta = async (req, res) => {
     if(req.body.respuesta && req.body.email){

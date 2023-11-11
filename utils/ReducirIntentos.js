@@ -11,6 +11,6 @@ export const reducirIntentos = async (usuario) => {
         console.log(`Intentos restantes para ${usuario}: ${intentos}`)
         if(intentos === 0) await bloquearUsuario(usuario)
     } catch (error) {
-        
+        return console.error('error en el query de reducirIntentos.', error)
     }
 }
