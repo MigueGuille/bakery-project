@@ -1,0 +1,45 @@
+DICCIONARIO DE PREFIJOS
+id: identifier
+de: descripción
+no: nombre
+em: email
+pr: pregunta de seguridad
+re: respuesta a la pregunta de seguridad
+cl: clave
+in: intentos
+bl: bloqueado 
+fe: fecha
+ti: tipo
+ap: apellido
+te: telefono
+di: dirección
+av: avenida
+ca: calle
+mu: municipio
+nu: numero local
+mo: monto
+
+ABREVIATURA DE TABLAS
+per: persona
+ptp: persona_tipo_persona
+tpp: tipo_persona
+plc: persona_local
+loc: local
+rut: ruta
+fac: factura
+pag: pago
+pro: producto
+ppr: presentacion_producto
+prv: producto_venta
+ren: renglon
+fpg: forma_pago
+deu: deuda
+asg: asignacion
+est: estado
+msj: mensaje
+usr: usuario
+pfl: perfil
+pms: permiso
+met: metodo
+obj: objeto
+mod: modulo

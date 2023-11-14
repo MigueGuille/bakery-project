@@ -8,3 +8,24 @@ export const obtenerIntentosQuery = 'SELECT in_usuario FROM sesion.usuario WHERE
 export const verificarEmailQuery = 'SELECT em_usuario FROM sesion.usuario WHERE em_usuario = $1'
 export const obtenerPreguntaQuery = 'SELECT pr_usuario FROM sesion.usuario WHERE em_usuario = $1'
 export const verificarRespuestaQuery = 'SELECT * FROM sesion.usuario WHERE em_usuario = $1 AND re_usuario = crypt($2, re_usuario)'
+export const agregarPersonaQuery = `INSERT INTO sesion.persona (no_persona, ap_persona, te_persona, di_persona) VALUES($1, $2, $3, $4)`
+export const agregarUsuarioQuery = `
+INSERT INTO sesion.usuario (no_usuario, id_perfil, em_usuario, pr_usuario, re_usuario, cl_usuario, id_persona)
+VALUES (
+    $1,
+    (SELECT id_perfil FROM sesion.perfil WHERE de_perfil = $2),
+    $3,
+    $4,
+    crypt($5, gen_salt($6)),
+    crypt($7, gen_salt($8)),
+	(SELECT id_persona FROM comercio.persona WHERE no_persona = $9 AND ap_persona = $10)
+)
+`
+export const permisosQuery = `
+SELECT pfl.de_perfil, met.de_metodo, obj.de_objeto, mod.de_modulo
+FROM sesion.perfil pfl
+INNER JOIN sesion.permiso pms ON pms.id_perfil = pfl.id_perfil
+INNER JOIN sesion.metodo met ON met.id_metodo = pms.id_metodo
+INNER JOIN sesion.objeto obj ON obj.id_objeto = met.id_objeto
+INNER JOIN sesion.modulo mod ON mod.id_modulo = obj.id_modulo
+`

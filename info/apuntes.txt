@@ -1,0 +1,7 @@
+voy necesitando:
+- conectar estado_usuario con usuario *
+- componente para capturar la fecha actual, formatearla desde javascript a postgresql y retornarla.
+- crear archivo tabla config con valores constantes como el porcentaje de impuestos.
+
+ideas para metodos: 
+- enviarClaveAlCorreo

@@ -1,6 +1,6 @@
 export class ControladorSesion{
     static sesionExiste(req){
-        return (req.session && req.session.no_usuario && req.session.em_usuario) ? true : false
+        return (req.session && req.session.no_usuario && req.session.cookie) ? true : false
     }
 
     static async cerrarSesion(req, res){
