@@ -8,7 +8,7 @@ export const obtenerIntentosQuery = 'SELECT in_usuario FROM sesion.usuario WHERE
 export const verificarEmailQuery = 'SELECT em_usuario FROM sesion.usuario WHERE em_usuario = $1'
 export const obtenerPreguntaQuery = 'SELECT pr_usuario FROM sesion.usuario WHERE em_usuario = $1'
 export const verificarRespuestaQuery = 'SELECT * FROM sesion.usuario WHERE em_usuario = $1 AND re_usuario = crypt($2, re_usuario)'
-export const agregarPersonaQuery = `INSERT INTO sesion.persona (no_persona, ap_persona, te_persona, di_persona) VALUES($1, $2, $3, $4)`
+export const agregarPersonaQuery = `INSERT INTO comercio.persona (no_persona, ap_persona, te_persona, di_persona) VALUES($1, $2, $3, $4)`
 export const agregarUsuarioQuery = `
 INSERT INTO sesion.usuario (no_usuario, id_perfil, em_usuario, pr_usuario, re_usuario, cl_usuario, id_persona)
 VALUES (
