@@ -3,7 +3,7 @@ import { armarMapaLlaves } from "../componentes/armarMapaLlaves.js"
 
 export class ControladorSeguridad {
     constructor(){
-        this.mapaPermisos
+        this.mapaPermisos = new Map()
         this.cargarPermisos()
     }
 
