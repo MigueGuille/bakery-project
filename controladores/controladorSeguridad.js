@@ -7,13 +7,13 @@ export class ControladorSeguridad {
         this.cargarPermisos()
     }
 
-    static verMapaPermisos(){
-        console.log(this.mapaPermisos)
+    verMapaPermisos(){
         return this.mapaPermisos
     }
 
     async cargarPermisos(){
         const infoPermisos = await obtenerInfoPermisos()
         this.mapaPermisos = armarMapaLlaves(infoPermisos)
+        console.log(this.mapaPermisos)
     }
 }

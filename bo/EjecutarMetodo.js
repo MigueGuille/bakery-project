@@ -9,10 +9,9 @@ export const ejecutarMetodo = async (req, res) => {
     const infoMetodo = await obtenerInfoMetodo(metodo)
     const llaveEjecucion = `${perfil}_${metodo}_${infoMetodo.de_objeto}_${infoMetodo.de_modulo}`
     console.log(llaveEjecucion)
-    const nuevoMapa = ControladorSeguridad.verMapaPermisos()
-    const cs = new ControladorSeguridad()
-    console.log(cs.mapaPermisos)
-
+    const nuevoMapar = new ControladorSeguridad().verMapaPermisos()
+    console.log(nuevoMapar)
+    //const cs = new ControladorSeguridad()
     // if(cs.mapaPermisos.has(llaveEjecucion)){
     //     //require(`../BO/${infoMetodo.de_modulo}.js`)[infoMetodo.de_objeto][metodo](parametros)
     //     require(`./${infoMetodo.de_objeto}.js`)[infoMetodo.de_objeto][metodo](parametros)
