@@ -18,7 +18,8 @@ export const ejecutarMetodo = async (req, res) => {
     const { parametros, metodo } = req.body
     //armar llave de ejecución del metodo:
     //la llave tiene el perfil del usuario que ejecuta el metodo
-    const perfil = await obtenerPerfil(req.session.no_user)
+    console.log('entramos a ejecutar metodo')
+    const perfil = await obtenerPerfil(req.session.no_usuario)
     console.log('mostrando el perfil en ejecutar metodo: ', perfil)
     //la llave tiene el metodo, objeto y el modulo
     //el metodo viene ya en el req

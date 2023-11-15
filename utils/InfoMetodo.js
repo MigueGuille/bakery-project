@@ -5,7 +5,7 @@ export const obtenerInfoMetodo = async (metodo) => {
     try{
         const data = await pool.query(obtenerInfoMetodoQuery, [metodo])
         console.log(data.rows)
-        return data.rows
+        return data.rows[0]
     }catch(error){
         return console.error('error en el query de obtenerInfoMetodo', error)
     }
