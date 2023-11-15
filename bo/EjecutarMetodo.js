@@ -17,6 +17,7 @@ import { obtenerInfoMetodo } from "../utils/InfoMetodo.js";
 export const ejecutarMetodo = async (req, res) => {
     const { parametros, metodo } = req.body
     const perfil = await obtenerPerfil(req.session.no_usuario)
+    const infoMetodo = await obtenerInfoMetodo(metodo)
     console.log(`${perfil}_${metodo}_${infoMetodo.de_objeto}_${infoMetodo.de_modulo}`)
 
     return res.status(200).json({ mensaje: 'Metodo ejecutado' })
