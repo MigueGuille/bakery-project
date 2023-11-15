@@ -19,8 +19,7 @@ export class ControladorSesion{
         console.log('--------------------------------------------------------')
         console.log(`Sesión iniciada para: ${req.session.no_usuario}`)
         console.log('--------------------------------------------------------')
-        console.log(req.session)
-        console.log('--------------------------------------------------------')
+        //console.log(req.session)
         return true;
     }
 }

@@ -1,7 +1,10 @@
 voy necesitando:
-- conectar estado_usuario con usuario *
 - componente para capturar la fecha actual, formatearla desde javascript a postgresql y retornarla.
 - crear archivo tabla config con valores constantes como el porcentaje de impuestos.
 
-ideas para metodos: 
-- enviarClaveAlCorreo
+-pendiente:
+1. crear todos los métodos del objeto de negocio.
+2. crear un middleware de cors.
+3. crear middleware que cargue los permisos en el app.use
+4. completar archivo Procesar para que se validen los permisos al ejecutar un metodo.
+5. atomizar los endpoints en varios routers

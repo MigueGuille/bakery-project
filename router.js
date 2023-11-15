@@ -5,7 +5,7 @@ import { verificarEmail } from "./validaciones/VerificarEmail.js";
 import { verificarRespuesta } from "./validaciones/VerificarRespuesta.js";
 import { ControladorDispatcher } from "./controladores/controladorDispatcher.js";
 import { ControladorSesion } from "./controladores/controladorSesion.js";
-import { procesar } from "./bo/Procesar.js";
+import { ejecutarMetodo } from "./bo/EjecutarMetodo.js";
 
 export const router = Router();
 
@@ -14,4 +14,4 @@ router.get('/logout', ControladorSesion.cerrarSesion)
 
 router.post('/verificarEmail', verificarEmail)
 router.post('/verificarRespuesta', verificarRespuesta)
-router.post('/procesar', validarSesion, procesar)
+router.post('/procesar', validarSesion, ejecutarMetodo)

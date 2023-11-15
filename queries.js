@@ -9,6 +9,18 @@ export const verificarEmailQuery = 'SELECT em_usuario FROM sesion.usuario WHERE 
 export const obtenerPreguntaQuery = 'SELECT pr_usuario FROM sesion.usuario WHERE em_usuario = $1'
 export const verificarRespuestaQuery = 'SELECT * FROM sesion.usuario WHERE em_usuario = $1 AND re_usuario = crypt($2, re_usuario)'
 export const agregarPersonaQuery = `INSERT INTO comercio.persona (no_persona, ap_persona, te_persona, di_persona) VALUES($1, $2, $3, $4)`
+export const obtenerPerfilQuery = `
+SELECT pfl.de_perfil FROM sesion.perfil pfl
+INNER JOIN sesion.usuario usr ON usr.id_perfil = pfl.id_perfil
+WHERE usr.no_usuario = $1
+`
+export const obtenerInfoMetodoQuery = `
+SELECT obj.de_objeto, mod.de_modulo
+FROM sesion.modulo mod
+INNER JOIN sesion.objeto obj ON obj.id_modulo = mod.id_modulo
+INNER JOIN sesion.metodo met ON met.id_objeto = obj.id_objeto
+WHERE met.de_metodo = $1
+`
 export const agregarUsuarioQuery = `
 INSERT INTO sesion.usuario (no_usuario, id_perfil, em_usuario, pr_usuario, re_usuario, cl_usuario, id_persona)
 VALUES (

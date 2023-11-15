@@ -291,3 +291,8 @@ FROM sesion.modulo mod
 INNER JOIN sesion.objeto obj ON obj.id_modulo = mod.id_modulo
 INNER JOIN sesion.metodo met ON met.id_objeto = obj.id_objeto
 
+--traer el perfil segun el nombre de un usuario:
+SELECT pfl.de_perfil FROM sesion.perfil pfl
+INNER JOIN sesion.usuario usr ON usr.id_perfil = pfl.id_perfil
+WHERE usr.no_usuario = 'josemmr11'
+
