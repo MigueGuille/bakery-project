@@ -10,6 +10,5 @@ export class ControladorSeguridad {
     async cargarPermisos(){
         const infoPermisos = await obtenerInfoPermisos()
         this.mapaPermisos = armarMapaLlaves(infoPermisos)
-        console.log(this.mapaPermisos)
     }
 }
