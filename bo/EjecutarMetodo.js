@@ -8,8 +8,9 @@ export const ejecutarMetodo = async (req, res) => {
     const perfil = await obtenerPerfil(req.session.no_usuario)
     const infoMetodo = await obtenerInfoMetodo(metodo)
     const llaveEjecucion = `${perfil}_${metodo}_${infoMetodo.de_objeto}_${infoMetodo.de_modulo}`
-
+    console.log(llaveEjecucion)
     const cs = new ControladorSeguridad()
+    console.log(cs.mapaPermisos)
     if(cs.mapaPermisos.has(llaveEjecucion)){
         //require(`../BO/${infoMetodo.de_modulo}.js`)[infoMetodo.de_objeto][metodo](parametros)
         require(`./${infoMetodo.de_objeto}.js`)[infoMetodo.de_objeto][metodo](parametros)
