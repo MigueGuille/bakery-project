@@ -4,8 +4,7 @@ import { obtenerPerfilQuery } from "../queries.js";
 export const obtenerPerfil = async (no_usuario) => {
     try {
         const data = await pool.query(obtenerPerfilQuery, [no_usuario])
-        console.log(data.rows)
-        return data.rows[0]
+        return data.rows[0].de_perfil
     } catch (error) {
         return console.error('error en el query de obtenerPerfil', error)
     }

@@ -16,19 +16,10 @@ import { obtenerInfoMetodo } from "../utils/InfoMetodo.js";
 
 export const ejecutarMetodo = async (req, res) => {
     const { parametros, metodo } = req.body
-    //armar llave de ejecución del metodo:
-    //la llave tiene el perfil del usuario que ejecuta el metodo
-    console.log('entramos a ejecutar metodo')
     const perfil = await obtenerPerfil(req.session.no_usuario)
-    console.log('mostrando el perfil en ejecutar metodo: ', perfil)
-    //la llave tiene el metodo, objeto y el modulo
-    //el metodo viene ya en el req
-    //el objeto y el modulo se tienen que sacar desde un metodo aparte
-    const infoMetodo = await obtenerInfoMetodo(metodo)
-    console.log('mostrando el objeto en ejecutar metodo: ', infoMetodo.de_objeto)
-    console.log('mostrando el modulo en ejecutar metodo: ', infoMetodo.de_modulo)
+    console.log(`${perfil}_${metodo}_${infoMetodo.de_objeto}_${infoMetodo.de_modulo}`)
 
-    return res.status(200)
+    return res.status(200).json({ mensaje: 'Metodo ejecutado' })
     //console.log(`${perfil}_${metodo}_${objeto}_${modulo}`)
     // Metodos[metodo](parametros)
     // .then(() => {
