@@ -9,7 +9,8 @@ export class ImportacionDinamica{
         try {
             const ruta = `../bo/${objeto}.js`
             const moduloImportado = await import(ruta);
-            this.modulo = moduloImportado.default;
+            //this.modulo = moduloImportado.default;
+            this.modulo = moduloImportado;
         } catch (error) {
             console.error(`Error al importar el módulo: ${error.message}`);
         }
