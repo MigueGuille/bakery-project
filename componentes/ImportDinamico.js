@@ -1,4 +1,4 @@
-import { manejoAdmision } from '../bo/manejoAdmision.js'
+//import { manejoAdmision } from '../bo/manejoAdmision.js'
 
 export class ImportDinamico {
     constructor(){
