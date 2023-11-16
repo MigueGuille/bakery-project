@@ -1,5 +1,5 @@
-import { ManejoAdmision } from "./manejoAdmision.js";
-import { ManejoMensajes } from "./manejoMensajes.js";
+import { ManejoAdmision } from "./ManejoAdmision.js";
+import { ManejoMensajes } from "./ManejoMensajes.js";
 import { ManejoNegocio } from "./manejoNegocio.js";
 import { ManejoPermisos } from "./manejoPermisos.js";
 import { ManejoSeguridad } from "./manejoSeguridad.js";
