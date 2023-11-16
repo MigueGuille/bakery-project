@@ -1,8 +1,8 @@
 import { Metodos } from "./Metodos.js";
+import { manejoAdmision } from "./manejoAdmision.js";
 import { ControladorSeguridad } from "../controladores/controladorSeguridad.js";
 import { obtenerPerfil } from "../utils/ObtenerPerfil.js";
 import { obtenerInfoMetodo } from "../utils/InfoMetodo.js";
-import { ImportDinamico } from "../componentes/ImportDinamico.js";
 
 export const ejecutarMetodo = async (req, res) => {
     const { parametros, metodo } = req.body
@@ -13,14 +13,9 @@ export const ejecutarMetodo = async (req, res) => {
     const copiaMapa = await ControladorSeguridad.obtenerMapaPermisos()
     console.log('copia del mapa: ', copiaMapa)
     if(copiaMapa.has(llaveEjecucion)){
-        const importDinamico = new ImportDinamico()
-        importDinamico.importarModulo(infoMetodo.de_objeto)
-        .then(() => {
-            const moduloImportado = importDinamico.obtenerModulo()
-            moduloImportado[metodo](parametros)
-            .then(() => res.status(200).json({ mensaje: 'Metodo ejecutado' }))
-            .catch(error => res.status(500).json({ mensaje: 'Error al ejecutar el metodo', error }))
-        })
+        manejoAdmision[metodo](parametros)
+        .then(() => res.status(200).json({ mensaje: 'Metodo ejecutado' }))
+        .catch(error => res.status(500).json({ mensaje: 'Error al ejecutar el metodo', error }))
         // import {} from `./${infoMetodo.de_objeto}.js`
         // require(`./${infoMetodo.de_objeto}.js`)[infoMetodo.de_objeto][metodo](parametros)
         // .then(() => res.status(200).json({ mensaje: 'Metodo ejecutado' }))

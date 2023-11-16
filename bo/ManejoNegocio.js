@@ -1,5 +1,5 @@
 import { pool } from '../componentes/db/postgresPool.js'
 
-export default class manejoNegocio{
+export class manejoNegocio{
 
 }
