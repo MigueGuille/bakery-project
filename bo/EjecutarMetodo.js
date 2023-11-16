@@ -1,9 +1,9 @@
 import { ManejoAdmision } from "./ManejoAdmision.js";
 import { ManejoMensajes } from "./ManejoMensajes.js";
-import { ManejoNegocio } from "./manejoNegocio.js";
-import { ManejoPermisos } from "./manejoPermisos.js";
-import { ManejoSeguridad } from "./manejoSeguridad.js";
-import { ManejoUsuarios } from "./manejoUsuarios.js";
+import { ManejoNegocio } from "./ManejoNegocio.js";
+import { ManejoPermisos } from "./ManejoPermisos.js";
+import { ManejoSeguridad } from "./ManejoSeguridad.js";
+import { ManejoUsuarios } from "./ManejoUsuarios.js";
 
 import { ControladorSeguridad } from "../controladores/controladorSeguridad.js";
 import { obtenerPerfil } from "../utils/ObtenerPerfil.js";
