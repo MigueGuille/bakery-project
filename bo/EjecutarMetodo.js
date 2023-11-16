@@ -2,7 +2,7 @@ import { Metodos } from "./Metodos.js";
 import { ControladorSeguridad } from "../controladores/controladorSeguridad.js";
 import { obtenerPerfil } from "../utils/ObtenerPerfil.js";
 import { obtenerInfoMetodo } from "../utils/InfoMetodo.js";
-import * as objetosNegocio from '../bo'
+import * as objetosNegocio from './'
 
 export const ejecutarMetodo = async (req, res) => {
     const { parametros, metodo } = req.body
