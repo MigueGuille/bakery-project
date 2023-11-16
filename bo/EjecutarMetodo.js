@@ -1,6 +1,10 @@
-import { Metodos } from "./Metodos.js";
-import { ManejoAdmision } from "./ManejoAdmision.js";
-import { ImportacionDinamica } from "../componentes/importacionDinamica.js";
+import { ManejoAdmision } from "./manejoAdmision.js";
+import { ManejoMensajes } from "./manejoMensajes.js";
+import { ManejoNegocio } from "./manejoNegocio.js";
+import { ManejoPermisos } from "./manejoPermisos.js";
+import { ManejoSeguridad } from "./manejoSeguridad.js";
+import { ManejoUsuarios } from "./manejoUsuarios.js";
+
 import { ControladorSeguridad } from "../controladores/controladorSeguridad.js";
 import { obtenerPerfil } from "../utils/ObtenerPerfil.js";
 import { obtenerInfoMetodo } from "../utils/InfoMetodo.js";
@@ -15,15 +19,40 @@ export const ejecutarMetodo = async (req, res) => {
     const copiaMapa = await ControladorSeguridad.obtenerMapaPermisos()
     console.log('copia del mapa: ', copiaMapa)
     if(copiaMapa.has(llaveEjecucion)){
-        const importacionDinamica = new ImportacionDinamica()
-        importacionDinamica.importarModulo(objeto)
-        .then(() => {
-            const moduloImportado = importacionDinamica.obtenerModulo()
-            moduloImportado[metodo](parametros)
-            .then(() =>  res.status(200).json({ mensaje: 'Metodo ejecutado' }))
-            .catch(error => res.status(500).json({ mensaje: 'Error al ejecutar el metodo', error }))
-        })
-        .catch(error => res.status(500).json({ mensaje: 'Error al importar el metodo', error }))
+        switch(objeto){
+            case 'ManejoAdmision':
+                ManejoAdmision[metodo](parametros)
+                .then(() => res.status(200).json({ mensaje: 'Metodo ejecutado' }))
+                .catch(error => res.status(500).json({ mensaje: 'Error al ejecutar el metodo', error }))
+                break
+            case 'ManejoMensajes':
+                ManejoMensajes[metodo](parametros)
+                .then(() => res.status(200).json({ mensaje: 'Metodo ejecutado' }))
+                .catch(error => res.status(500).json({ mensaje: 'Error al ejecutar el metodo', error }))
+                break
+            case 'ManejoNegocio':
+                ManejoNegocio[metodo](parametros)
+                .then(() => res.status(200).json({ mensaje: 'Metodo ejecutado' }))
+                .catch(error => res.status(500).json({ mensaje: 'Error al ejecutar el metodo', error }))
+                break
+            case 'ManejoPermisos':
+                ManejoPermisos[metodo](parametros)
+                .then(() => res.status(200).json({ mensaje: 'Metodo ejecutado' }))
+                .catch(error => res.status(500).json({ mensaje: 'Error al ejecutar el metodo', error }))
+                break
+            case 'ManejoSeguridad':
+                ManejoSeguridad[metodo](parametros)
+                .then(() => res.status(200).json({ mensaje: 'Metodo ejecutado' }))
+                .catch(error => res.status(500).json({ mensaje: 'Error al ejecutar el metodo', error }))
+                break
+            case 'ManejoUsuarios':
+                ManejoUsuarios[metodo](parametros)
+                .then(() => res.status(200).json({ mensaje: 'Metodo ejecutado' }))
+                .catch(error => res.status(500).json({ mensaje: 'Error al ejecutar el metodo', error }))
+                break
+            default:
+                return res.status(500).json({ mensaje: `El objeto ${objeto} no existe` })
+        }
         // import {} from `./${infoMetodo.de_objeto}.js`
         // require(`./${infoMetodo.de_objeto}.js`)[infoMetodo.de_objeto][metodo](parametros)
         // .then(() => res.status(200).json({ mensaje: 'Metodo ejecutado' }))
