@@ -15,7 +15,8 @@ export const ejecutarMetodo = async (req, res) => {
     console.log('copia del mapa: ', copiaMapa)
     if(copiaMapa.has(llaveEjecucion)){
         const importDinamico = new ImportDinamico()
-        ruta = `./${infoMetodo.de_objeto}.js`
+        const ruta = `./${infoMetodo.de_objeto}.js`
+        console.log('ruta: ', ruta)
         importDinamico.importarModulo(ruta)
         .then(() => {
             const moduloImportado = importDinamico.obtenerModulo()
