@@ -7,8 +7,9 @@ export class ControladorSeguridad {
         this.cargarPermisos()
     }
 
-    verMapaPermisos(){
-        return this.mapaPermisos
+    static async obtenerMapaPermisos(){
+        const infoPermisos = await obtenerInfoPermisos()
+        return armarMapaLlaves(infoPermisos)
     }
 
     async cargarPermisos(){
