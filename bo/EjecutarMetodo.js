@@ -1,5 +1,5 @@
 import { Metodos } from "./Metodos.js";
-import { manejoAdmision } from "./manejoAdmision.js";
+import { ManejoAdmision } from "./ManejoAdmision.js";
 import { ControladorSeguridad } from "../controladores/controladorSeguridad.js";
 import { obtenerPerfil } from "../utils/ObtenerPerfil.js";
 import { obtenerInfoMetodo } from "../utils/InfoMetodo.js";
@@ -13,7 +13,7 @@ export const ejecutarMetodo = async (req, res) => {
     const copiaMapa = await ControladorSeguridad.obtenerMapaPermisos()
     console.log('copia del mapa: ', copiaMapa)
     if(copiaMapa.has(llaveEjecucion)){
-        manejoAdmision[metodo](parametros)
+        ManejoAdmision[metodo](parametros)
         .then(() => res.status(200).json({ mensaje: 'Metodo ejecutado' }))
         .catch(error => res.status(500).json({ mensaje: 'Error al ejecutar el metodo', error }))
         // import {} from `./${infoMetodo.de_objeto}.js`

@@ -1,7 +1,7 @@
 import { pool } from '../componentes/db/postgresPool.js'
 import { agregarUsuarioQuery, agregarPersonaQuery } from "../queries.js"
 
-export class manejoAdmision{
+export class ManejoAdmision{
     static async agregarUsuario(parametros){
         // try {
         //     const { no_usuario, de_perfil, em_usuario, pr_usuario, re_usuario, cl_usuario, no_persona, ap_persona
