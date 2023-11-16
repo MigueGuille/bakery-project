@@ -3,15 +3,15 @@ import { agregarUsuarioQuery, agregarPersonaQuery } from "../queries.js"
 
 export default class manejoAdmision{
     static async agregarUsuario(parametros){
-        try {
-            const { no_usuario, de_perfil, em_usuario, pr_usuario, re_usuario, cl_usuario, no_persona, ap_persona
-            } = parametros
-            const salt = 'bf'
-            const valores = [no_usuario, de_perfil, em_usuario, pr_usuario, re_usuario, salt, cl_usuario, salt, no_persona, ap_persona]
-            await pool.query(agregarUsuarioQuery, valores)
-        } catch (error) {
-            return console.error('error en el query de agregar usuario', error)
-        }
+        // try {
+        //     const { no_usuario, de_perfil, em_usuario, pr_usuario, re_usuario, cl_usuario, no_persona, ap_persona
+        //     } = parametros
+        //     const salt = 'bf'
+        //     const valores = [no_usuario, de_perfil, em_usuario, pr_usuario, re_usuario, salt, cl_usuario, salt, no_persona, ap_persona]
+        //     await pool.query(agregarUsuarioQuery, valores)
+        // } catch (error) {
+        //     return console.error('error en el query de agregar usuario', error)
+        // }
         console.log('funcionando agregarUsuario')
     } // para agregar un usuario es necesario que antes se haya agregado una persona
 
