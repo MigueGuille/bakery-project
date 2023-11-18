@@ -60,3 +60,6 @@ export const cambiarPersonaAsignacionQuery = `UPDATE asignacion.asignacion SET i
 export const cambiarProductoAsignacionQuery = `UPDATE asignacion.asignacion SET id_producto_venta = $1 WHERE id_asignacion = $2`
 export const cambiarFechaAsignacionQuery = `UPDATE asignacion.asignacion SET fe_asignacion = $1 WHERE id_asignacion = $2`
 export const cambiarEstadoAsignacionQuery = `UPDATE asignacion.asignacion SET id_estado = $1 WHERE id_asignacion = $2`
+// CREO QUE SE PUEDEN MEJORAR LOS QUERIES
+export const agregarPermisoQuery = `INSERT INTO sesion.permiso (id_perfil, id_metodo) VALUES ($1, $2)`
+export const borrarPermisoQuery = `DELETE FROM sesion.permiso WHERE id_permiso = $1`
