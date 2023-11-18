@@ -1,4 +1,5 @@
 import { pool } from '../componentes/db/postgresPool.js'
+import { agregarPermisoQuery, borrarPermisoQuery } from '../queries.js'
 
 export class ManejoPermisos{
 
