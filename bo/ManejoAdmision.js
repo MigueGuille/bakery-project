@@ -1,5 +1,5 @@
 import { pool } from '../componentes/db/postgresPool.js'
-import { agregarUsuarioQuery, agregarPersonaQuery } from "../queries.js"
+import { agregarUsuarioQuery, agregarPersonaQuery, agregarTipoPersonaQuery } from "../queries.js"
 
 export class ManejoAdmision{
     static async agregarUsuario(parametros){
@@ -30,5 +30,13 @@ export class ManejoAdmision{
             return console.error('faltan parámetros para ejecutar el metodo')
         }
         console.log('funcionando agregarPersona')
+    }
+
+    static async agregarTipoPersona(parametros){
+        try{
+            await pool.query(agregarTipoPersonaQuery, [parametros.de_tipo_persona])
+        }catch(error){
+            return console.error('error en el query de agregar un tipo de Persona', error)
+        }
     }
 }
