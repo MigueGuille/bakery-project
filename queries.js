@@ -41,3 +41,22 @@ INNER JOIN sesion.metodo met ON met.id_metodo = pms.id_metodo
 INNER JOIN sesion.objeto obj ON obj.id_objeto = met.id_objeto
 INNER JOIN sesion.modulo mod ON mod.id_modulo = obj.id_modulo
 `
+
+export const agregarTipoPersonaQuery = `INSERT INTO persona.tipo_persona (de_tipo_persona) VALUES ($1)`
+// FIJARSE EN LOS ESQUEMAS, POR SI NO ESTAN CORRECTOS
+export const cambiarEmailUsuarioQuery = `UPDATE sesion.em_usuario SET em.usuario = $1 WHERE no_usuario = $2`
+export const cambiarClaveUsuarioQuery = `UPDATE sesion.cl_usuario SET cl.usuario = crypt($1, gen_salt($2)) WHERE no_usuario = $3`
+export const desbloquearUsuario = `UPDATE sesion.bl_usuario SET bl.usuario = false WHERE no_usuario = $1`
+export const borrarUsuarioQuery = `DELETE FROM sesion.usuario WHERE no_usuario = $1`
+export const cambiarNombreUsuarioQuery = `UPDATE sesion.usuario SET no_usuario = $1 WHERE no_usuario = $2`
+export const borrarPersonaQuery = `DELETE FROM comercio.persona WHERE id_persona = $1`
+export const cambiarNombrePersonaQuery = `UPDATE comercio.persona SET no_persona = $1 WHERE id_persona = $2`
+export const cambiarApellidoPersonaQuery = `UPDATE comercio.persona SET ap_persona = $1 WHERE id_persona = $2`
+export const cambiarTelefonoPersonaQuery = `UPDATE comercio.persona SET te_persona = $1 WHERE id_persona = $2`
+export const cambiarDireccionPersonaQuery = `UPDATE comercio.persona SET di_persona = $1 WHERE id_persona = $2`
+export const agregarAsignacionQuery = `INSERT INTO asignacion.asignacion (id_persona, id_producto_venta, fe_asignacion, id_estado) VALUES ($1, $2, $3, $4)`
+export const borrarAsignacionQuery = `DELETE FROM asignacion.asignacion WHERE id_asignacion = $1`
+export const cambiarPersonaAsignacionQuery = `UPDATE asignacion.asignacion SET id_persona = $1 WHERE id_asignacion = $2`
+export const cambiarProductoAsignacionQuery = `UPDATE asignacion.asignacion SET id_producto_venta = $1 WHERE id_asignacion = $2`
+export const cambiarFechaAsignacionQuery = `UPDATE asignacion.asignacion SET fe_asignacion = $1 WHERE id_asignacion = $2`
+export const cambiarEstadoAsignacionQuery = `UPDATE asignacion.asignacion SET id_estado = $1 WHERE id_asignacion = $2`
