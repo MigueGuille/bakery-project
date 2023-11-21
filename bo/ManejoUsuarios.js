@@ -1,33 +1,41 @@
 import { pool } from '../componentes/db/postgresPool.js'
-import { agregarAsignacionQuery, borrarAsignacionQuery, borrarPersonaQuery, cambiarApellidoPersonaQuery, cambiarDireccionPersonaQuery, cambiarEstadoAsignacionQuery, cambiarFechaAsignacionQuery, cambiarNombrePersonaQuery, cambiarNombreUsuarioQuery, cambiarPersonaAsignacionQuery, cambiarProductoAsignacionQuery, cambiarTelefonoPersonaQuery } from '../queries.js'
+import { agregarAsignacionQuery, borrarAsignacionQuery, borrarPersonaQuery, borrarUsuarioQuery, cambiarApellidoPersonaQuery, cambiarDireccionPersonaQuery, cambiarEstadoAsignacionQuery, cambiarFechaAsignacionQuery, cambiarNombrePersonaQuery, cambiarNombreUsuarioQuery, cambiarPersonaAsignacionQuery, cambiarProductoAsignacionQuery, cambiarTelefonoPersonaQuery } from '../queries.js'
 
 export class ManejoUsuarios{
 
     static async borrarUsuario(parametros){
-        try{
-            await pool.query(borrarUsuarioQuery, [parametros.no_usuario])
-        }catch(error){
-            return console.error('error en el query de borrar usuario', error)
+        if(parametros.no_usuario){
+            try{
+                await pool.query(borrarUsuarioQuery, [parametros.no_usuario])
+            }catch(error){
+                return console.error('error en el query de borrar usuario', error)
+            }
+        } else {
+            return console.error('faltan parámetros para ejecutar el metodo')
         }
     }
     
     static async cambiarNombreUsuario(parametros){
-        try{
-
-            await pool.query(cambiarNombreUsuarioQuery, [
-                parametros.no_usuario,
-                parametros.no_usuario
-            ])
-        }catch(error){
-            return console.error('error en el query de cambiar nombre de usuario', error)
+        if(parametros.no_usuario, parametros.no_usuario_nuevo){
+            try{
+                await pool.query(cambiarNombreUsuarioQuery, [parametros.no_usuario_nuevo, parametros.no_usuario])
+            }catch(error){
+                return console.error('error en el query de cambiar nombre de usuario', error)
+            }
+        } else {
+            return console.error('faltan parámetros para ejecutar el metodo')
         }
     }
 
     static async borrarPersona(parametros){
-        try{
-            await pool.query(borrarPersonaQuery, [parametros.id_persona])
-        }catch(error){
-            return console.error('error en el query de borrar persona', error)
+        if(parametros.id_persona){
+            try{
+                await pool.query(borrarPersonaQuery, [parametros.id_persona])
+            }catch(error){
+                return console.error('error en el query de borrar persona', error)
+            }
+        } else {
+            return console.error('faltan parámetros para ejecutar el metodo')
         }
     }
 
