@@ -4,13 +4,15 @@ import { bloquearUsuarioQuery, cambiarClaveUsuarioQuery, cambiarEmailUsuarioQuer
 export class ManejoSeguridad{
 
     static async cambiarEmailUsuario(parametros){
-        try{
-            await pool.query(cambiarEmailUsuarioQuery, [
-            parametros.em_usuario,
-            parametros.no_usuario
-        ])
-        }catch(error){
-            return console.log('error en el query de cambiar email de usuario', error)
+        if(parametros.em_usuario, parametros.no_usuario){
+            const { em_usuario, no_usuario } = parametros
+            try{
+                await pool.query(cambiarEmailUsuarioQuery, [em_usuario, no_usuario])
+            }catch(error){
+                return console.error('error en el query de cambiar email de usuario', error)
+            }
+        } else {
+            return console.error('faltan parámetros para ejecutar el metodo')
         }
     }
 
@@ -25,30 +27,39 @@ export class ManejoSeguridad{
     // }
 
     static async cambiarClaveUsuario(parametros){
-        try{
+        if(parametros.cl_usuario, parametros.no_usuario){
+            const { cl_usuario, no_usuario } = parametros
             const salt = 'bf'
-            await pool.query(cambiarClaveUsuarioQuery, [
-            parametros.cl_usuario,
-            salt,
-            parametros.no_usuario
-            ])
-        }catch(error){
-            return console.error('error en el query de cambiar clave de usuario', error)
+            try{
+                await pool.query(cambiarClaveUsuarioQuery, [cl_usuario, salt, no_usuario])
+            }catch(error){
+                return console.error('error en el query de cambiar clave de usuario', error)
+            }
+        } else {
+            return console.error('faltan parámetros para ejecutar el metodo')
         }
     }
     static async bloquearUsuario(parametros){
-        try{
-            await pool.query(bloquearUsuarioQuery, [parametros.no_usuario])
-        }catch(error){
-            return console.error('error en el query de bloquear usuario', error)
+        if(parametros.no_usuario){
+            try{
+                await pool.query(bloquearUsuarioQuery, [parametros.no_usuario])
+            }catch(error){
+                return console.error('error en el query de bloquear usuario', error)
+            }
+        } else {
+            return console.error('faltan parámetros para ejecutar el metodo')
         }
     }
 
     static async desbloquearUsuario(parametros){
-        try{
-            await pool.query(desbloquearUsuario, [parametros.no_usuario])
-        }catch(error){
-            return console.error('error en el query de desbloquear usuario', error)
+        if(parametros.no_usuario){
+            try{
+                await pool.query(desbloquearUsuario, [parametros.no_usuario])
+            }catch(error){
+                return console.error('error en el query de desbloquear usuario', error)
+            }
+        } else {
+            return console.error('faltan parámetros para ejecutar el metodo')
         }
     }
 

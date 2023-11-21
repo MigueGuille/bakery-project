@@ -33,10 +33,15 @@ export class ManejoAdmision{
     }
 
     static async agregarTipoPersona(parametros){
-        try{
-            await pool.query(agregarTipoPersonaQuery, [parametros.de_tipo_persona])
-        }catch(error){
-            return console.error('error en el query de agregar un tipo de Persona', error)
+        if(parametros.de_tipo_persona){
+            const { de_tipo_persona } = parametros
+            try {
+                await pool.query(agregarTipoPersonaQuery, [de_tipo_persona])
+            } catch (error) {
+                return console.error('error en el query de agregar tipo de persona', error)
+            }
+        } else {
+            return console.error('faltan parámetros para ejecutar el metodo')
         }
     }
 }
