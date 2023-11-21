@@ -68,3 +68,14 @@ export const cambiarEstadoAsignacionQuery = `UPDATE comercio.asignacion SET id_e
 // CREO QUE SE PUEDEN MEJORAR LOS QUERIES
 export const agregarPermisoQuery = `INSERT INTO sesion.permiso (id_perfil, id_metodo) VALUES ($1, $2)`
 export const borrarPermisoQuery = `DELETE FROM sesion.permiso WHERE id_permiso = $1`
+export const agregarPresentacionProductoQuery = `INSERT INTO asignacion.presentacion_producto (de_presentacion) VALUES ($1)`
+export const borrarPresentacionProductoQuery = `DELETE FROM asignacion.presentacion_producto WHERE de_presentacion = $1`
+export const cambiarPresentacionProductoQuery = `UPDATE asignacion.presentacion_producto SET de_presentacion = $1 WHERE de_presentacion = $2`
+export const agregarProductoVentaQuery = `INSERT INTO asignacion.producto_venta(id_presentacion, id_producto, mo_producto_venta) VALUES ($1, $2, $3)`
+export const borrarProductoVentaQuery = `DELETE FROM asignacion.producto_venta WHERE id_producto_venta = $1`
+export const cambiarProductoVentaQuery = `UPDATE asignacion.producto_venta SET id_producto = $1 WHERE id_producto_venta = $2`
+export const cambiarPresentacionVentaQuery = `UPDATE asignacion.producto_venta SET id_presentacion = $1 WHERE id_producto_venta = $2`
+export const cambiarMontoProductoVentaQuery = `UPDATE asignacion.producto_venta SET mo_producto_venta = $1 WHERE id_producto_venta = $2`
+export const agregarProductoQuery =
+export const borrarProductoQuery =
+export const cambiarProductoQuery =
