@@ -82,17 +82,17 @@ export const agregarProductoQuery = `INSERT INTO asignacion.producto (de_product
 export const borrarProductoQuery = `DELETE FROM asignacion.producto WHERE de_producto = $1`
 export const cambiarProductoQuery = `UPDATE asignacion.producto SET de_producto = $1 WHERE de_producto = $2`
 
-export const agregarPersonaLocal = `INSERT INTO  persona.persona_local (id_persona, id_local) VALUES ($1, $2)`
-export const agregarRuta = `INSERT INTO local.ruta (av_ruta, ca_ruta, mu_ruta) VALUES ($1, $2, $3)`
-export const borrarRuta =  `DELETE FROM local.ruta WHERE id_ruta = $1`
-export const cambiarAvenidaRuta = `UPDATE local.ruta SET av_ruta = $1 WHERE id_ruta = $2`
-export const cambiarCalleRuta = `UPDATE local.ruta SET ca_ruta = $1 WHERE id_ruta = $2`
-export const cambiarMunicipioRuta = `UPDATE local.ruta SET mu_ruta = $1 WHERE id_ruta = $2`
-export const agregarLocal = `INSERT INTO local.local (no_local, nu_local, id_ruta) VALUES ($1, $2, $3)`
-export const borrarLocal = `DELETE FROM local.local WHERE id_local = $1`
-export const cambiarNumeroLocal = `UPDATE local.local SET nu_local = $1 WHERE id_local = $2`
-export const cambiarNombreLocal = `UPDATE local.local SET no_local = $1 WHERE id_local = $2`
-export const cambiarRutaLocal = `UPDATE local.local SET id_ruta = $1 WHERE id_local = $2`
+export const agregarPersonaLocalQuery = `INSERT INTO  persona.persona_local (id_persona, id_local) VALUES ($1, $2)`
+export const agregarRutaQuery = `INSERT INTO local.ruta (av_ruta, ca_ruta, mu_ruta) VALUES ($1, $2, $3)`
+export const borrarRutaQuery =  `DELETE FROM local.ruta WHERE id_ruta = $1`
+export const cambiarAvenidaRutaQuery = `UPDATE local.ruta SET av_ruta = $1 WHERE id_ruta = $2`
+export const cambiarCalleRutaQuery = `UPDATE local.ruta SET ca_ruta = $1 WHERE id_ruta = $2`
+export const cambiarMunicipioRutaQuery = `UPDATE local.ruta SET mu_ruta = $1 WHERE id_ruta = $2`
+export const agregarLocalQuery = `INSERT INTO local.local (no_local, nu_local, id_ruta) VALUES ($1, $2, $3)`
+export const borrarLocalQuery = `DELETE FROM local.local WHERE id_local = $1`
+export const cambiarNumeroLocalQuery = `UPDATE local.local SET nu_local = $1 WHERE id_local = $2`
+export const cambiarNombreLocalQuery = `UPDATE local.local SET no_local = $1 WHERE id_local = $2`
+export const cambiarRutaLocalQuery = `UPDATE local.local SET id_ruta = $1 WHERE id_local = $2`
 
 
 // export const agregarFormaPago = 
