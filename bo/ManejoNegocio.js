@@ -1,5 +1,5 @@
 import { pool } from '../componentes/db/postgresPool.js'
-import { agregarAsignacionQuery, agregarPresentacionProductoQuery, agregarProductoQuery, agregarProductoVentaQuery, borrarAsignacionQuery, borrarPresentacionProductoQuery, borrarProductoQuery, borrarProductoVentaQuery, cambiarEstadoAsignacionQuery, cambiarFechaAsignacionQuery, cambiarMontoProductoVentaQuery, cambiarPersonaAsignacionQuery, cambiarPresentacionProductoQuery, cambiarPresentacionVentaQuery, cambiarProductoAsignacionQuery, cambiarProductoQuery, cambiarProductoVentaQuery } from '../queries.js'
+import { agregarAsignacionQuery, agregarLocalQuery, agregarPersonaLocalQuery, agregarPresentacionProductoQuery, agregarProductoQuery, agregarProductoVentaQuery, agregarRutaQuery, borrarAsignacionQuery, borrarLocalQuery, borrarPresentacionProductoQuery, borrarProductoQuery, borrarProductoVentaQuery, borrarRutaQuery, cambiarAvenidaRutaQuery, cambiarCalleRutaQuery, cambiarEstadoAsignacionQuery, cambiarFechaAsignacionQuery, cambiarMontoProductoVentaQuery, cambiarMunicipioRutaQuery, cambiarNombreLocalQuery, cambiarNumeroLocalQuery, cambiarPersonaAsignacionQuery, cambiarPresentacionProductoQuery, cambiarPresentacionVentaQuery, cambiarProductoAsignacionQuery, cambiarProductoQuery, cambiarProductoVentaQuery, cambiarRutaLocalQuery } from '../queries.js'
 
 export class ManejoNegocio{
 
@@ -247,6 +247,173 @@ export class ManejoNegocio{
             }
         } else {
             return console.error('error en el query de cambiar producto, faltan parametros')
+        }
+    }
+
+    // MANEJO DE LOCALES
+    // ---------------------------------------------------------------
+    static async agregarPersonaLocal(parametros){
+        if(parametros.id_persona, parametros.id_local){
+            try{
+                await pool.query(agregarPersonaLocalQuery, [
+                    parametros.id_persona,
+                    parametros.id_local
+                ])
+            } catch(error){
+                return console.error('error en el query de agregar persona a local', error)
+            }
+        } else {
+            return console.error('error en el query de agregar persona a local, faltan parametros')
+        }
+    }
+
+    static async agregarRuta(parametros){
+        if(parametros.av_ruta, parametros.ca_ruta, parametros.mu_ruta){
+            try{
+                await pool.query(agregarRutaQuery, [
+                    parametros.av_ruta,
+                    parametros.ca_ruta,
+                    parametros.mu_ruta
+                ])
+            } catch(error){
+                return console.error('error en el query de agregar ruta', error)
+            }
+        } else {
+            return console.error('error en el query de agregar ruta, faltan parametros')
+        }
+
+    }
+
+    static async borrarRuta(parametros){
+        if(parametros.id_ruta){
+            try{
+                await pool.query(borrarRutaQuery, [parametros.id_ruta])
+            } catch(error){
+                return console.error('error en el query de borrar ruta', error)
+            }
+        } else {
+            return console.error('error en el query de borrar ruta, faltan parametros')
+        }
+
+    }
+
+    static async cambiarAvenidaRuta(parametros){
+        if(parametros.av_ruta_nuevo, parametros.id_ruta){
+            try{
+                await pool.query(cambiarAvenidaRutaQuery, [
+                    parametros.av_ruta_nuevo,
+                    parametros.id_ruta
+                ])
+            } catch(error){
+                return console.error('error en el query de cambiar avenida de ruta', error)
+            }
+        } else {
+            return console.error('error en el query de cambiar avenida de ruta, faltan parametros')
+        }
+    }
+
+    static async cambiarCalleRuta(parametros){
+        if(parametros.ca_ruta_nuevo, parametros.id_ruta){
+            try{
+                await pool.query(cambiarCalleRutaQuery, [
+                    parametros.ca_ruta_nuevo,
+                    parametros.id_ruta
+                ])
+            } catch(error){
+                return console.error('error en el query de cambiar calle de ruta', error)
+            }
+        } else {
+            return console.error('error en el query de cambiar calle de ruta, faltan parametros')
+        }
+    }
+
+    static async cambiarMunicipioRuta(parametros){
+        if(parametros.mu_ruta_nuevo, parametros.id_ruta){
+            try{
+                await pool.query(cambiarMunicipioRutaQuery, [
+                    parametros.mu_ruta_nuevo,
+                    parametros.id_ruta
+                ])
+            } catch(error){
+                return console.error('error en el query de cambiar municipio de ruta', error)
+            }
+        } else {
+            return console.error('error en el query de cambiar municipio de ruta, faltan parametros')
+        }
+    }
+    
+    static async agregarLocal(parametros){
+        if(parametros.no_local, parametros.nu_local, parametros.id_ruta){
+            try{
+                await pool.query(agregarLocalQuery, [
+                    parametros.no_local,
+                    parametros.nu_local,
+                    parametros.id_ruta
+                ])
+            } catch(error){
+                return console.error('error en el query de agregar local', error)
+            }
+        } else {
+            return console.error('error en el query de agregar local, faltan parametros')
+        }
+    }
+
+    static async borrarLocal(parametros){
+        if(parametros.id_local){
+            try{
+                await pool.query(borrarLocalQuery, [parametros.id_local])
+            } catch(error){
+                return console.error('error en el query de borrar local', error)
+            }
+        } else {
+            return console.error('error en el query de borrar local, faltan parametros')
+        }
+
+    }
+
+    static async cambiarNumeroLocal(parametros){
+        if(parametros.nu_local_nuevo, parametros.id_local){
+            try{
+                await pool.query(cambiarNumeroLocalQuery, [
+                    parametros.nu_local_nuevo,
+                    parametros.id_local
+                ])
+            } catch(error){
+                return console.error('error en el query de cambiar numero de local', error)
+            }
+        } else {
+            return console.error('error en el query de cambiar numero de local, faltan parametros')
+        }
+    }
+
+    static async cambiarNombreLocal(parametros){
+        if(parametros.no_local_nuevo, parametros.id_local){
+            try{
+                await pool.query(cambiarNombreLocalQuery, [
+                    parametros.no_local_nuevo,
+                    parametros.id_local
+                ])
+            } catch(error){
+                return console.error('error en el query de cambiar nombre de local', error)
+            }
+        } else { 
+            return console.error('error en el query de cambiar nombre de local, faltan parametros')
+        }
+
+    }
+
+    static async cambiarRutaLocal(parametros){
+        if(parametros.id_ruta_nuevo, parametros.id_local){
+            try{
+                await pool.query(cambiarRutaLocalQuery, [
+                    parametros.id_ruta_nuevo,
+                    parametros.id_local
+                ])
+            } catch(error){
+                return console.error('error en el query de cambiar ruta de local', error)
+            }
+        } else {
+            return console.error('error en el query de cambiar ruta de local, faltan parametros')
         }
     }
 }
